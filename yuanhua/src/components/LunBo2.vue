@@ -1,6 +1,6 @@
 <template>
   <div id="certify">
-    <div class="swiper-container">
+    <div class="swiper-container button-swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="img/certify012.png"></div>
         <div class="swiper-slide"><img src="img/certify013.png"></div>
@@ -42,7 +42,7 @@ export default {
   },
   mounted(){
     this.get(),
-    new Swiper('#certify .swiper-container', {
+    new Swiper('#certify .button-swiper', {
         watchSlidesProgress: true,
         slidesPerView: 'auto',
         centeredSlides: true,

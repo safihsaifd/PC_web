@@ -4,7 +4,7 @@
 <!--小屏导航栏-->
         <div class="container clearfix sm_input d-md-none">
 			<input type="text" placeholder="课程搜索" class="float-left form-control">
-			<router-link to="" class="float-right"><img src="img/bottom.png"></router-link>
+			<router-link to="/" class="float-right"><img src="img/bottom.png"></router-link>
 		</div>
 <!--小屏菜单-->
         <div class="nav-for-mobile d-md-none d-flex justify-content-center" style="margin: 0 auto;">
@@ -16,31 +16,31 @@
 					</router-link>
 				</li>
 				<li>
-					<router-link to="">
+					<router-link to="/course">
 						<img src="img/sm2.png" width="30px auto" class="mb-1">
 						<p class="text-muted font_small mb-2 link-dark">教程</p>
 					</router-link>
 				</li>
 				<li>
-					<router-link to="">
+					<router-link to="/course">
 						<img src="img/sm3.png" width="30px auto" class="mb-1">
 						<p class="text-muted font_small mb-2 link-dark">课程</p>
 					</router-link>
 				</li>
 				<li>
-					<router-link to="">
+					<router-link to="/">
 						<img src="img/sm4.png" width="30px auto" class="mb-1">
 						<p class="text-muted font_small mb-2 link-dark">社区</p>
 					</router-link>
 				</li>
 				<li>
-					<router-link to="">
+					<router-link to="/">
 						<img src="img/sm5.png" width="30px auto" class="mb-1">
 						<p class="text-muted font_small mb-2 link-dark">工作咨询</p>
 					</router-link>
 				</li>
 				<li>
-					<router-link to="">
+					<router-link to="/">
 						<img src="img/sm6.png" width="30px auto" class="mb-1">
 						<p class="text-muted font_small mb-2 link-dark">关于我们</p>
 					</router-link>
@@ -57,7 +57,7 @@
                     </h2>
                 </div>
                 <div class="section-more-btn">
-                    <router-link to="" style="color: black;">更多老师推荐作品 >></router-link>
+                    <router-link to="/" style="color: black;">更多老师推荐作品 >></router-link>
                 </div>
                 <div class="row clearfix">
                     <table></table>
@@ -65,8 +65,8 @@
                         <div class="teacher-item">
                             <div class="teacher-top">
                                 <table>	</table>
-                                <router-link to="" class="teacher-img"><img src="img/teacher1.jpg" class="avatar-lg"></router-link>
-                                <router-link to="" class="link-dark">Mango芒果猫老师</router-link>
+                                <router-link to="/" class="teacher-img"><img src="img/teacher1.jpg" class="avatar-lg"></router-link>
+                                <router-link to="/" class="link-dark">Mango芒果猫老师</router-link>
                                 <div class="position">暂无头衔</div>
                             </div>
                             <div class="teacher-bottom clearfix">
@@ -81,8 +81,8 @@
                         <div class="teacher-item">
                             <div class="teacher-top">
                                 <table>	</table>
-                                <router-link to="" class="teacher-img"><img src="img/teacher2.jpg" class="avatar-lg"></router-link>
-                                <router-link to="" class="link-dark">唐月辉老师</router-link>
+                                <router-link to="/" class="teacher-img"><img src="img/teacher2.jpg" class="avatar-lg"></router-link>
+                                <router-link to="/" class="link-dark">唐月辉老师</router-link>
                                 <div class="position">角色原画班讲师</div>
                             </div>
                             <div class="teacher-bottom clearfix">
@@ -97,12 +97,12 @@
                         <div class="teacher-item">
                             <div class="teacher-top">
                                 <table>	</table>
-                                <router-link to="" class="teacher-img"><img src="img/teacher3.jpg" class="avatar-lg"></router-link>
-                                <router-link to="" class="link-dark">时若可止老师</router-link>
+                                <router-link to="/" class="teacher-img"><img src="img/teacher3.jpg" class="avatar-lg"></router-link>
+                                <router-link to="/" class="link-dark">时若可止老师</router-link>
                                 <div class="position">插画基础班讲师</div>
                             </div>
                             <div class="teacher-bottom clearfix">
-                                <table>	</table>
+                                <table></table>
                                 <div class="about">								
                                     大家好,我是时若可止,擅长日系风的插画师,曾参与多个插画项目...									
                                 </div>
@@ -113,8 +113,8 @@
                         <div class="teacher-item">
                             <div class="teacher-top">
                                 <table>	</table>
-                                <router-link to="" class="teacher-img"><img src="img/teacher4.jpg" class="avatar-lg"></router-link>
-                                <router-link to="" class="link-dark">重渡老师</router-link>
+                                <router-link to="/" class="teacher-img"><img src="img/teacher4.jpg" class="avatar-lg"></router-link>
+                                <router-link to="/" class="link-dark">重渡老师</router-link>
                                 <div class="position">绘画进阶班讲师</div>
                             </div>
                             <div class="teacher-bottom clearfix">
@@ -323,7 +323,7 @@
                         <div class="media">
                             <div class="media-body">
                                 <h3 class="title">
-                                    <span style="color:#fff;font-weight:bold;">【北京】来看一部短片故事吧</span>
+                                    <span style="color:#fff;font-weight:bold;">【北京】WEB-学习Web前端-这是首页</span>
                                 </h3>
                                 <div style="padding-left: 10px;font-size:16px;">
                                     <span style="color:#fff;">
@@ -335,7 +335,7 @@
                         <div class="media">
                             <div class="media-body">
                                 <h3 class="title">
-                                    <span style="color:#fff;font-weight:bold;">【成都】张雅的日记本></span>
+                                    <span style="color:#fff;font-weight:bold;">【成都】WEB-学习Web前端-这是首页</span>
                                 </h3>
                                 <div style="padding-left: 10px;font-size:16px;">
                                     <span style="color:#fff;">
