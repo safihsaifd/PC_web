@@ -41,7 +41,6 @@ export default {
       },
   },
   mounted(){
-    this.get(),
     new Swiper('#certify .button-swiper', {
         watchSlidesProgress: true,
         slidesPerView: 'auto',

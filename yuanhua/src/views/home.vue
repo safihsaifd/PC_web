@@ -191,7 +191,7 @@
                                     <span class="tags">
                                         <span class="tag-coursemark"></span>
                                     </span>
-                                    <img :src="item.pic" class="img-responsive">
+                                    <img v-lazy="item.pic" class="img-responsive">
                                 </router-link>
                             </div>
                             <!-- 上面为图片模块 下面为文字模块 -->

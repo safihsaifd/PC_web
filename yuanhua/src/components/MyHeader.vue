@@ -22,14 +22,14 @@
 			    <li class="nav-item"><router-link to="/" class="nav-link">首页</router-link></li>
 			    <li class="nav-item"><router-link to="/course" class="nav-link">教程</router-link></li>
 			    <li class="nav-item"><router-link class="nav-link" to="/course">课程</router-link></li>
-			    <li class="nav-item"><router-link class="nav-link" to="">社区</router-link></li>
-			    <li class="nav-item"><router-link class="nav-link" to="">工作&咨询</router-link></li>
-			    <li class="nav-item"><router-link class="nav-link" to="">关于我们</router-link></li>
+			    <li class="nav-item"><router-link class="nav-link" to="/">社区</router-link></li>
+			    <li class="nav-item"><router-link class="nav-link" to="/">工作&咨询</router-link></li>
+			    <li class="nav-item"><router-link class="nav-link" to="/">关于我们</router-link></li>
 			</ul>
 <!-- 搜索框 -->
 			<div id="select" style="display:inline-flex;" class="d-sm-none d-md-inline-flex">
-			    <input type="text" placeholder="课程搜索" class="form-control p-0 d-sm-none d-lg-flex">
-			    <router-link class="d-sm-none d-md-inline" to=""><img src="../assets/headfoot/img/bottom.png"></router-link>
+			    <input type="text" placeholder="课程搜索" class="form-control p-0 d-sm-none d-lg-flex" v-model="q" @keyup="tosearch">
+			    <router-link :to="{path:'/search',query:{q:this.q}}" class="d-sm-none d-md-inline"><img src="../assets/headfoot/img/bottom.png"></router-link>
 			</div>
 <!-- 登陆前 登录注册 -->
 			<ul id="listlogin" class="list-unstyled d-sm-none d-md-flex" v-if="offlogin==null">
@@ -247,7 +247,8 @@ export default {
 	data() {
 		return {
 			offlogin:{},
-			show:'none'	
+			show:'none',
+			q:""//搜索框内容	
 		}
 	},
 	methods: {
@@ -269,9 +270,15 @@ export default {
             this.offlogin = JSON.parse(localStorage.getItem('userlist'));
             console.log(this.offlogin);
 		},
+		tosearch(e){
+			if(e.keyCode == 13){
+			this.$router.push({path: '/search',query:{q:this.q}});// 注意：使用path时， params 将不可用
+			window.location.reload();//搜索后刷新一下页面
+			}
+		}
 	},
 	created(){
     	this.GetLocalData()
-    }
+	},
 }
 </script>

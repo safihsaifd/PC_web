@@ -109,7 +109,7 @@ app.get("/getlun2",(req,res)=>{
 })
 //拿取教程数据
 app.get("/teach",(req,res)=>{
-	var sql="select * from teach";
+	var sql="select uid,pic,title,studynum,talknum,price from teach where uid<5";
 	pool.query(sql,(err,result)=>{
 		if(err) throw err;
 		console.log(result);
@@ -126,38 +126,85 @@ app.get('/category',(req,res)=>{
 	  res.send({message:'查询成功',code:1,results:results});
 	});
 });
-//获取特定分类下的文章信息的接口并分页
+// 获取所有教程分类的接口
+app.get('/dcategory',(req,res)=>{
+	//查找文章分类表中的所有数据
+	let sql = 'SELECT * FROM details';
+	//通过MySQL连接池执行SQL语句
+	pool.query(sql,(err,results)=>{
+	  if(err) throw err;
+	  res.send({message:'查询成功',code:1,results:results});
+	});
+});
+
+//获取特定分类下的课程信息的接口并分页
 app.get("/lists",(req,res)=>{
 	//接收客户端传递的URL参数中的cid  -- 文章分类ID
-	let cid = req.query.cid;
+    let cid = req.query.cid;
+    //接收客户端传递的URL参数中的cid  -- 教程分类ID
+	let did = req.query.did;
 	//接收客户端传递的URL参数中的page -- 页码
 	let page = req.query.page;
 	//存储每页显示的记录数(其实pagesize就是一个纯变量,与分页没有任何关系)
 	let pagesize = 12;
 	//根据MySQL分页的标准计算公式计算出offset参数值,并且带入到SQL语句中
-	let offset = (page - 1) * pagesize;
-	//现以接收到cid为条件进行文章信息的查找,此时的pagesize才是真正的返回多少条记录呢
-	let sql = 'SELECT * FROM teach WHERE category_id = ? LIMIT ' + offset + ',' + pagesize;
-	//存储总记录数
+    let offset = (page - 1) * pagesize;
+    //存储总记录数
 	let rowcount;
 	//存储总页数
 	let pagecount;
-	//执行SQL分页查询
-	pool.query(sql,[cid],(err,result)=>{
-		if(err) throw err;
-		sql = 'SELECT COUNT(uid) AS count FROM teach WHERE category_id=?';
-		pool.query(sql,[cid],(err,results)=>{
-			if(err) throw err;
-			//1.记录总记录数    
-			rowcount = results[0].count;
-			//2.计算总页数
-			pagecount = Math.ceil(rowcount / pagesize);
-			//返回原来的查询记录的数据及总页数信息
-			res.send({message:'查询成功',code:1,results:result,pagecount:pagecount});   
-		});
-	})
-	/////////////////
+    if(did==1){
+        let sql = 'SELECT uid,pic,title,studynum,talknum,price FROM teach WHERE category_id = ? LIMIT ' + offset + ',' + pagesize;
+        //执行SQL分页查询
+        pool.query(sql,[cid],(err,result)=>{
+            if(err) throw err;
+            sql = 'SELECT COUNT(uid) AS count FROM teach WHERE category_id=?';
+            pool.query(sql,[cid],(err,results)=>{
+                if(err) throw err;
+                //1.记录总记录数    
+                rowcount = results[0].count;
+                //2.计算总页数
+                pagecount = Math.ceil(rowcount / pagesize);
+                //返回原来的查询记录的数据及总页数信息
+                res.send({message:'查询成功',code:1,results:result,pagecount:pagecount});   
+            });
+        })
+    }else{
+		if(cid==1){
+			let sql = 'SELECT uid,pic,title,studynum,talknum,price FROM teach WHERE details_id = ? LIMIT ' + offset + ',' + pagesize;
+			pool.query(sql,[did],(err,result)=>{
+				if(err) throw err;
+				sql = 'SELECT COUNT(uid) AS count FROM teach WHERE details_id = ?';
+				pool.query(sql,[did],(err,results)=>{
+					if(err) throw err;
+					//1.记录总记录数    
+					rowcount = results[0].count;
+					//2.计算总页数
+					pagecount = Math.ceil(rowcount / pagesize);
+					//返回原来的查询记录的数据及总页数信息
+					res.send({message:'查询成功',code:1,results:result,pagecount:pagecount});   
+				});
+			})
+		}else{
+			let sql = 'SELECT uid,pic,title,studynum,talknum,price FROM teach WHERE category_id = ? and details_id = ? LIMIT ' + offset + ',' + pagesize;
+			//执行SQL分页查询
+			pool.query(sql,[cid,did],(err,result)=>{
+				if(err) throw err;
+				sql = 'SELECT COUNT(uid) AS count FROM teach WHERE category_id = ? and details_id = ?';
+				pool.query(sql,[cid,did],(err,results)=>{
+					if(err) throw err;
+					//1.记录总记录数    
+					rowcount = results[0].count;
+					//2.计算总页数
+					pagecount = Math.ceil(rowcount / pagesize);
+					//返回原来的查询记录的数据及总页数信息
+					res.send({message:'查询成功',code:1,results:result,pagecount:pagecount});   
+				});
+			})
+		}
+    }
 })
+
 //获取全部数据
 app.get("/all",(req,res)=>{
 	//接收客户端传递的URL参数中的page -- 页码
@@ -182,15 +229,46 @@ app.get("/all",(req,res)=>{
 			//2.计算总页数
 			pagecount = Math.ceil(rowcount / pagesize);
 			//返回原来的查询记录的数据及总页数信息
-			res.send({message:'查询成功',code:1,results:result,pagecount:pagecount});   
+			res.send({message:'查询成功',code:1,results:result,pagecount:pagecount,rowcount:rowcount});   
 		});
 	})
 })
+//获取搜索的数据
+app.get('/search',(req,res)=>{
+	//接收客户端传递的URL参数中的page -- 页码
+	let page = req.query.page;
+	//存储每页显示的记录数(其实pagesize就是一个纯变量,与分页没有任何关系)
+	let pagesize = 12;
+	//根据MySQL分页的标准计算公式计算出offset参数值,并且带入到SQL语句中
+	let offset = (page - 1) * pagesize;
+	//存储总记录数
+	let rowcount;
+	//存储总页数
+	let pagecount;
+	//获取前台传来的搜索条件
+	let q=req.query.q;
+	q='%'+q+'%';
+	let sql="SELECT * FROM teach WHERE title LIKE ? LIMIT " + offset + ',' + pagesize;
+	pool.query(sql,[q],(err,result)=>{
+		if(err) throw err;
+		//1.记录总记录数    
+		rowcount = result.length;
+		//2.计算总页数
+		pagecount = Math.ceil(rowcount / pagesize);
+		console.log(result);
+		console.log(rowcount);
+		//返回原来的查询记录的数据及总页数信息
+		res.send({message:'查询成功',code:1,results:result,pagecount:pagecount,rowcount:rowcount});   
+	})
+})
+
+
+
 // 获取课程/教程的详细信息
 app.get('/course',(req,res)=>{
 	//获取文章ID
 	let uid = req.query.uid;
-	//SQL查询 -- 多表(内)连接
+	//SQL查询
 	let sql = 'SELECT * from teach where uid=?';
 	//执行SQL语句
 	pool.query(sql,[uid],(err,result)=>{

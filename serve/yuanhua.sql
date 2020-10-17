@@ -46,47 +46,49 @@ INSERT INTO lunbo2 VALUES ('5', 'img/certify016.jpg');
 
 CREATE TABLE teach(
     uid INT PRIMARY KEY AUTO_INCREMENT,/*自增主键id*/
-    category_id VARCHAR(12) DEFAULT 1,/*分类id*/
+    category_id VARCHAR(12) DEFAULT 1,/*大分类id*/
     uname VARCHAR(12) DEFAULT null,
     title VARCHAR(64) DEFAULT null,
     price VARCHAR(32) DEFAULT NULL,
     pic varchar(128) default NULL,
     studynum VARCHAR(12) DEFAULT 0,
     talknum VARCHAR(12) DEFAULT 0,
-    category_name VARCHAR(12) DEFAULT null,
+    category_name VARCHAR(12) DEFAULT null,/*大分类名称*/
+    details_name VARCHAR(12) DEFAULT'图文教程',/*细分名称*/
+    details_id VARCHAR(12) DEFAULT'1',
     intr VARCHAR(256) DEFAULT NULL
 )ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
-INSERT INTO teach VALUES("1","2","李瑞","怎么把爱好变成工作成为职业画师，原画人美宣插画教程【李睿】","免费","img/studypic1.jpg","256","0",'教程',NULL);
-INSERT INTO teach VALUES("2","2","冷蝉","原画人二次元插画教程，Q版设计案例讲解，sai的用法演示【冷蝉】","免费","img/studypic2.jpg","479","0",'教程',NULL);
-INSERT INTO teach VALUES("3","2","九袋掌老","从业9年的大佬都是这样细化角色的，原画人角色原画教程【九袋掌老】","免费","img/studypic3.jpg","208","2",'教程',NULL);
-INSERT INTO teach VALUES("4","2","东彪","原画人场景原画教程，四种场景方法防止你掉进场景坑【东彪】","免费","img/studypic4.jpg","323","3",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","铁匠","插画中关于人体结构，原画人美宣插画教程【铁匠","免费","img/studypic5.jpg","212","4",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","吸烟","人设思路讲解，原画人游戏原画教程【吸烟】","免费","img/studypic6.jpg","208","5",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","冷蝉","手把手教你画超萌Q版，原画人二次元插画教程【冷蝉】","免费","img/studypic7.jpg","216","0",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","寺久","史尔特尔同人头像绘制，原画人伪厚涂插画教程【寺久】","免费","img/studypic8.jpg","206","0",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","JW","揭秘游戏背景的制作流程快速上手，原画人二次元场景插画教程【JW】","免费","img/studypic9.jpg","225","0",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","潘潘","美少女的半身像细化，原画人插画教程【潘潘】","免费","img/studypic10.jpg","209","2",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","JW","一学就废插画完成度如何快速提升，原画人二次元场景插画教程【JW】","免费","img/studypic11.jpg","219","2",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","杜祥洋","人体演示讲解，原画人游戏原画教程【杜祥洋】","免费","img/studypic12.jpg","219","2",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","九樾儿","光与色彩的魔法，原画人日韩风商业插画教程【九樾儿】","免费","img/studypic13.jpg","223","2",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","彭倩","唠唠国风设计风格十年来的变迁，原画人游戏原画教程【彭倩】","免费","img/studypic14.jpg","323","2",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","JW","掌握技巧快速实现画面效果＋点评改图，原画人二次元场景插画教程【JW】","免费","img/studypic15.jpg","283","2",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","九樾儿","勾线演示讲解，原画人日韩风商业插画教程【九樾儿】","免费","img/studypic16.jpg","238","2",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","吸烟","人体演示讲解＋点评改图，原画人游戏原画教程【吸烟】","免费","img/studypic17.jpg","268","2",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","玉梨子","女性头部绘制讲解，原画人游戏原画教程【玉梨子】","免费","img/studypic18.jpg","245","2",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","JW","揭秘手机主题壁纸的制作流程，原画人二次元场景插画教程【JW】","免费","img/studypic19.jpg","289","0",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","纯子","光与角色的互动＋改图，原画人游戏原画教程【纯子】","免费","img/studypic20.jpg","289","0",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","寺久","两步开始你的头像之旅+点评改图，原画人伪厚涂插画教程【寺久】","免费","img/studypic21.jpg","289","0",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","九樾儿","奇妙的背景构成法，原画人日韩风商业插画教程【九樾儿】","免费","img/studypic22.jpg","216","0",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","JW","插画构图的秘密+改图，原画人二次元场景插画教程【JW】","免费","img/studypic23.jpg","116","0",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","吸烟","深入细化，原画人角色原画教程【吸烟】","免费","img/studypic24.jpg","176","0",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"2","铁匠","质感的刻画，原画人游戏原画教程【铁匠】","免费","img/studypic25.jpg","276","2",'教程',NULL);
-INSERT INTO teach VALUES(NULL,"3","雪莉","原画人商业插画基础入门课程","499元","img/studypic26.jpg","0","0",'课程',NULL);
-INSERT INTO teach VALUES(NULL,"3","芒果猫","原画人二次元插画1期【芒果猫】","5690元","img/studypic27.jpg","0","0",'课程',NULL);
-INSERT INTO teach VALUES(NULL,"3","寺久","原画人日系伪厚涂头像班【寺久】","1800元","img/studypic28.jpg","0","0",'课程',NULL);
-INSERT INTO teach VALUES(NULL,"3","九袋掌老","原画人东方风角色【九袋掌老】","5990元","img/studypic29.jpg","31","0",'课程',NULL);
-INSERT INTO teach VALUES(NULL,"3","但丁、重渡","原画人美宣插画【但丁、重渡】","5999元","img/studypic30.jpg","41","12",'课程',NULL);
-INSERT INTO teach VALUES(NULL,"3","吸烟","原画人日韩角色设计1期【吸烟】","4890元","img/studypic31.jpg","23","12",'课程',NULL);
+INSERT INTO teach VALUES("1","2","李瑞","怎么把爱好变成工作成为职业画师，原画人美宣插画教程【李睿】","免费","img/studypic1.jpg","256","0",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES("2","2","冷蝉","原画人二次元插画教程，Q版设计案例讲解，sai的用法演示【冷蝉】","免费","img/studypic2.jpg","479","0",'教程','大神访问','3',NULL);
+INSERT INTO teach VALUES("3","2","九袋掌老","从业9年的大佬都是这样细化角色的，原画人角色原画教程【九袋掌老】","免费","img/studypic3.jpg","208","2",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES("4","2","东彪","原画人场景原画教程，四种场景方法防止你掉进场景坑【东彪】","免费","img/studypic4.jpg","323","3",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES(NULL,"2","铁匠","插画中关于人体结构，原画人美宣插画教程【铁匠","免费","img/studypic5.jpg","212","4",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES(NULL,"2","吸烟","人设思路讲解，原画人游戏原画教程【吸烟】","免费","img/studypic6.jpg","208","5",'教程','视频教程','4',NULL);
+INSERT INTO teach VALUES(NULL,"2","冷蝉","手把手教你画超萌Q版，原画人二次元插画教程【冷蝉】","免费","img/studypic7.jpg","216","0",'教程','视频教程','4',NULL);
+INSERT INTO teach VALUES(NULL,"2","寺久","史尔特尔同人头像绘制，原画人伪厚涂插画教程【寺久】","免费","img/studypic8.jpg","206","0",'教程','大神访问','3',NULL);
+INSERT INTO teach VALUES(NULL,"2","JW","揭秘游戏背景的制作流程快速上手，原画人二次元场景插画教程【JW】","免费","img/studypic9.jpg","225","0",'教程','大神访问','3',NULL);
+INSERT INTO teach VALUES(NULL,"2","潘潘","美少女的半身像细化，原画人插画教程【潘潘】","免费","img/studypic10.jpg","209","2",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES(NULL,"2","JW","一学就废插画完成度如何快速提升，原画人二次元场景插画教程【JW】","免费","img/studypic11.jpg","219","2",'教程','视频教程','4',NULL);
+INSERT INTO teach VALUES(NULL,"2","杜祥洋","人体演示讲解，原画人游戏原画教程【杜祥洋】","免费","img/studypic12.jpg","219","2",'教程','视频教程','4',NULL);
+INSERT INTO teach VALUES(NULL,"2","九樾儿","光与色彩的魔法，原画人日韩风商业插画教程【九樾儿】","免费","img/studypic13.jpg","223","2",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES(NULL,"2","彭倩","唠唠国风设计风格十年来的变迁，原画人游戏原画教程【彭倩】","免费","img/studypic14.jpg","323","2",'教程','大神访问','3',NULL);
+INSERT INTO teach VALUES(NULL,"2","JW","掌握技巧快速实现画面效果＋点评改图，原画人二次元场景插画教程【JW】","免费","img/studypic15.jpg","283","2",'教程','大神访问','3',NULL);
+INSERT INTO teach VALUES(NULL,"2","九樾儿","勾线演示讲解，原画人日韩风商业插画教程【九樾儿】","免费","img/studypic16.jpg","238","2",'教程','视频教程','4',NULL);
+INSERT INTO teach VALUES(NULL,"2","吸烟","人体演示讲解＋点评改图，原画人游戏原画教程【吸烟】","免费","img/studypic17.jpg","268","2",'教程','视频教程','4',NULL);
+INSERT INTO teach VALUES(NULL,"2","玉梨子","女性头部绘制讲解，原画人游戏原画教程【玉梨子】","免费","img/studypic18.jpg","245","2",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES(NULL,"2","JW","揭秘手机主题壁纸的制作流程，原画人二次元场景插画教程【JW】","免费","img/studypic19.jpg","289","0",'教程','视频教程','4',NULL);
+INSERT INTO teach VALUES(NULL,"2","纯子","光与角色的互动＋改图，原画人游戏原画教程【纯子】","免费","img/studypic20.jpg","289","0",'教程','大神访问','3',NULL);
+INSERT INTO teach VALUES(NULL,"2","寺久","两步开始你的头像之旅+点评改图，原画人伪厚涂插画教程【寺久】","免费","img/studypic21.jpg","289","0",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES(NULL,"2","九樾儿","奇妙的背景构成法，原画人日韩风商业插画教程【九樾儿】","免费","img/studypic22.jpg","216","0",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES(NULL,"2","JW","插画构图的秘密+改图，原画人二次元场景插画教程【JW】","免费","img/studypic23.jpg","116","0",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES(NULL,"2","吸烟","深入细化，原画人角色原画教程【吸烟】","免费","img/studypic24.jpg","176","0",'教程','图文教程','2',NULL);
+INSERT INTO teach VALUES(NULL,"2","铁匠","质感的刻画，原画人游戏原画教程【铁匠】","免费","img/studypic25.jpg","276","2",'教程','大神访问','3',NULL);
+INSERT INTO teach VALUES(NULL,"3","雪莉","原画人商业插画基础入门课程","499元","img/studypic26.jpg","0","0",'课程','视频教程','4',NULL);
+INSERT INTO teach VALUES(NULL,"3","芒果猫","原画人二次元插画1期【芒果猫】","5690元","img/studypic27.jpg","0","0",'课程','大神访问','3',NULL);
+INSERT INTO teach VALUES(NULL,"3","寺久","原画人日系伪厚涂头像班【寺久】","1800元","img/studypic28.jpg","0","0",'课程','大神访问','3',NULL);
+INSERT INTO teach VALUES(NULL,"3","九袋掌老","原画人东方风角色【九袋掌老】","5990元","img/studypic29.jpg","31","0",'课程','视频教程','4',NULL);
+INSERT INTO teach VALUES(NULL,"3","但丁、重渡","原画人美宣插画【但丁、重渡】","5999元","img/studypic30.jpg","41","12",'课程','图文教程','2',NULL);
+INSERT INTO teach VALUES(NULL,"3","吸烟","原画人日韩角色设计1期【吸烟】","4890元","img/studypic31.jpg","23","12",'课程','视频教程','4',NULL);
 
 CREATE TABLE category(
     category_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -95,3 +97,12 @@ CREATE TABLE category(
 INSERT INTO category VALUES ('1', '全部');
 INSERT INTO category VALUES ('2', '教程');
 INSERT INTO category VALUES ('3', '课程');
+
+CREATE TABLE details(
+    details_id INT PRIMARY KEY AUTO_INCREMENT,
+    details_name VARCHAR(12)
+)ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+INSERT INTO details VALUES ('1', '全部');
+INSERT INTO details VALUES ('2', '图文教程');
+INSERT INTO details VALUES ('3', '大神访问');
+INSERT INTO details VALUES ('4', '视频教程');

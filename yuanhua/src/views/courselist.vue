@@ -7,7 +7,7 @@
                 <li>/</li>
                 <li>{{info.category_name}}</li>
                 <li>/</li>
-                <li>图文教程</li>
+                <li>{{info.details_name}}</li>
                 <li>/</li>
                 <li>{{info.title}}</li>
             </ul>

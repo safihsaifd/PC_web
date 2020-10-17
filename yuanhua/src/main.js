@@ -8,10 +8,15 @@ import LunBo from "./components/LunBo"
 import LunBo2 from "./components/LunBo2"
 //引入axios
 import axios from "axios"
+//引入v-lazy
+import Vuelazyload from 'vue-lazyload'
 
 // 引入 VueAwesomeswiper :轮播图
 import VueAwesomeswiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeswiper)
+
+//引用v-lazy
+Vue.use(Vuelazyload)
 
 //让component变成全局组件:
 Vue.component("my-header",MyHeader)

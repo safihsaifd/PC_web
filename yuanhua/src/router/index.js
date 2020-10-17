@@ -4,17 +4,20 @@ import Login from '../views/login.vue'
 import Reg from '../views/reg.vue'
 import NotFound from '../views/not-found.vue'
 import MyCenter from '../views/mycenter.vue'
-import Home from '../views/home.vue'
-import Course from "../views/course.vue"
 import CourseList from "../views/courselist.vue"
-import LunBo from "../components/LunBo.vue"
-import LunBo2 from "../components/LunBo2.vue"
 
 Vue.use(VueRouter)
 
 const routes = [
   //首页
-  {path:"/",component:Home},
+  {
+    path:"/",
+    name:'Home',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "home" */ '../views/home.vue')
+  },
   //个人中心路由
   {path:'/mycenter',component:MyCenter},
   //登陆路由
@@ -22,14 +25,26 @@ const routes = [
   //注册
   {path:"/reg",component:Reg},
   //教程&课程
-  {path:"/course",component:Course},
+  {
+    path:"/course",
+    name:'Course',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "course" */ '../views/course.vue')
+  },
+  {
+    path:"/search",
+    name:'Search',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "course" */ '../views/search.vue')
+  },
   //教程&课程详情
   {path:"/list/:uid",component:CourseList},
   //404
   {path:"*", component:NotFound},
-  //测试轮播图
-  {path:'/lunbo',component:LunBo},
-  {path:"/lunbo2",component:LunBo2}
 ]
 
 const router = new VueRouter({
